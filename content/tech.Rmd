@@ -147,19 +147,22 @@ Note the specification of the `type="application/json"` attribute, which prevent
 It is also possible to include Python code chunks in R Markdown, by first loading the `reticulate` package (in R):
 ```{r prepare_python, cache = FALSE, echo = FALSE}
 # Load reticulate package for running python
-if (!file.exists("/var/task/adam/envs/r-reticulate/bin/python")) {
+tryCatch({
+  if (!file.exists(reticulate::conda_exe())) {
+    stop("Could not find conda executable")
+  }
+}, error = function (err) {
+  message("Installing conda...")
   if (!require("reticulate") || grepl("Error", c(try(reticulate::conda_binary())))) {
     devtools::install_git("https://github.com/rstudio/reticulate")
     #install.packages("reticulate")
     reticulate::install_miniconda()
   }
   reticulate::conda_python(envname = "r-reticulate")
-  reticulate::conda_install(envname = "r-reticulate", c("python", "matplotlib", "ncurses", "readline"))
   reticulate::use_condaenv(condaenv = "r-reticulate", required = TRUE)
+  reticulate::conda_install(envname = "r-reticulate", c("python", "matplotlib", "ncurses", "readline"))
+})
 
-} else {
-  reticulate::use_python(python = "/var/task/adam/envs/r-reticulate/bin/python", required = TRUE)
-}
 
 ```
 

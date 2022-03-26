@@ -11,8 +11,19 @@
     };
 
     // initial view
+    let init = false;
     let location = new Float32Array([ 0, 10, 5 ]);
     let target = new Float32Array([0, 1, 0]);
+
+    let w = 1;
+    let h = 1;
+    let d = 1;
+
+    const light = {};
+
+    const heightmap = [];
+    const gridSizeX = 10;
+    const gridSizeZ = 10;
 
     const captureViewDirection = (loc, tgt) => {
         console.log("location: ", loc, "\n", "target: ", tgt);
@@ -31,30 +42,6 @@
         return Math.abs((((hr < 255) ? hr : r) << 16) + (g << 8) + ((hb < 255) ? hb : b));
     }
 
-    const data = JSON.parse(document.getElementById('gl_data_in_html').children[0].innerHTML);
-    const heightmap = [];
-    const gridSizeX = 10;
-    const gridSizeZ = 10;
-
-    for (let z=0; z < data.length; z++) {
-        const xx = [];
-        for (const x of Object.getOwnPropertyNames(data[z])) {
-            xx.push(data[z][x])
-        }
-        heightmap[z] = xx;
-    }
-
-    console.log(heightmap);
-
-    let w = 1;
-    let h = 1;
-    let d = 1;
-
-    const light = {};
-
-    let webgl;
-
-
     /* This is a helper callback to bind custom uniforms/attributes
      * and to pass custom buffers, like the ad-hoc texture coords
      * used in normal-selected texture shader below. I inserted a
@@ -71,22 +58,41 @@
 
     let navControlInit;
 
+    let webgl;
+
     onMount(() => {
+
         let frame;
 
-        if (typeof navControlInit === 'function') {
-            navControlInit();
+        if (!init) {
+            init = true;
+
+            const data = JSON.parse(document.getElementById('gl_data_in_html').children[0].innerHTML);
+
+            for (let z = 0; z < data.length; z++) {
+                const xx = [];
+                for (const x of Object.getOwnPropertyNames(data[z])) {
+                    xx.push(data[z][x])
+                }
+                heightmap[z] = xx;
+            }
+
+            console.log(heightmap);
+
+            if (typeof navControlInit === 'function') {
+                navControlInit();
+            }
+
+            const loop = () => {
+                frame = requestAnimationFrame(loop);
+
+                light.x = 3 * Math.sin(Date.now() * 0.001);
+                light.y = 2.5 + 2 * Math.sin(Date.now() * 0.0004);
+                light.z = 3 * Math.cos(Date.now() * 0.002);
+            };
+
+            loop();
         }
-
-        const loop = () => {
-            frame = requestAnimationFrame(loop);
-
-            light.x = 3 * Math.sin(Date.now() * 0.001);
-            light.y = 2.5 + 2 * Math.sin(Date.now() * 0.0004);
-            light.z = 3 * Math.cos(Date.now() * 0.002);
-        };
-
-        loop();
 
         return () => cancelAnimationFrame(frame);
     });

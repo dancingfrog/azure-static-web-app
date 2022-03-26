@@ -12,7 +12,7 @@ tags:
   - WebGL
 ---
 
-<div id="uni-sol"></div>
+<div id="viz-r"></div>
 
 ## Visualizing R Data with [Sveltr](https://github.com/dancingfrog/sveltr)
 

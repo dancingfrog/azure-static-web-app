@@ -1,35 +1,50 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-06-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/setup/</loc>
-    <lastmod>2020-06-23T00:00:00+00:00</lastmod>
-  </url>
-  
   <url>
     <loc>/</loc>
     <lastmod>2020-06-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/module2/visualizingdataforregression/</loc>
+  </url><url>
+    <loc>/post/</loc>
     <lastmod>2020-06-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/visualize-r/</loc>
+  </url><url>
+    <loc>/2020/06/23/visualizing-data-for-regression/</loc>
+    <lastmod>2020-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
     <lastmod>2020-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/tags/gl/</loc>
+    <lastmod>2020-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/gl/</loc>
+    <lastmod>2020-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/svelte/</loc>
+    <lastmod>2020-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/sveltegl/</loc>
+    <lastmod>2020-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2020-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2020/03/14/visualizing-r-data-with-sveltr/</loc>
+    <lastmod>2020-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/webgl/</loc>
+    <lastmod>2020-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/r-markdown/</loc>
+    <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/tech/</loc>
     <lastmod>2020-02-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/about/</loc>
+    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
-  
 </urlset>

@@ -16,7 +16,7 @@ export default {
 		format: 'iife',
 		name: 'app',
 		export: 'named',
-		file: 'public/main.js'
+		file: 'static/main.js'
 	},
 	plugins: [
 		svelte({
@@ -25,7 +25,7 @@ export default {
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
 			css: css => {
-				css.write('public/main.css');
+				css.write('static/main.css');
 			}
 		}),
 
@@ -40,7 +40,7 @@ export default {
 		}),
 
 		postcss({
-			extract: 'public/global.css',
+			extract: 'static/global.css',
 			plugins: []
 		}),
 
@@ -48,8 +48,8 @@ export default {
 
 		copy({
 			targets: [
-				{ src: 'src/images', dest: 'public/' },
-				{ src: 'static/*', dest: 'public/' }
+				{ src: 'src/images', dest: 'static/' },
+				{ src: 'src/styles/*', dest: 'static/' }
 			]
 		}),
 
@@ -65,9 +65,9 @@ export default {
 		// the bundle has been generated
 		!production && serve(),
 
-		// Watch the `public` directory and refresh the
+		// Watch the `static` directory and refresh the
 		// browser on changes when not in production
-		!production && livereload('public'),
+		!production && livereload('static'),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify

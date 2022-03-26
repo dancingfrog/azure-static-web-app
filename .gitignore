@@ -2,11 +2,13 @@
 .ipynb_checkpoints
 .RData
 .Rhistory
-*.Rproj*
+*.R*
 *html
 blogdown
 dist
 node_modules
 public
 Videos
-.Rproj.user
+
+packrat/lib*
+renv/lib*
