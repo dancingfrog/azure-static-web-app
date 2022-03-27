@@ -7,7 +7,14 @@ import postcss from "rollup-plugin-postcss";
 import shader from 'rollup-plugin-shader';
 import { terser } from 'rollup-plugin-terser';
 
-const production = !process.env.ROLLUP_WATCH;
+const production = !(
+	process.env.ROLLUP_WATCH ||
+	process.argv.filter(arg => arg.match(/\s-w/) !== null).length > 0
+);
+
+(function (prod_value) {
+	console.log("PRODUCTION: ", prod_value);
+}(production));
 
 export default {
 	input: 'src/main.js',
@@ -39,10 +46,10 @@ export default {
 			dedupe: ['svelte']
 		}),
 
-		postcss({
-			extract: 'static/global.css',
-			plugins: []
-		}),
+		// postcss({
+		// 	extract: 'static/global.css',
+		// 	plugins: []
+		// }),
 
 		commonjs(),
 
