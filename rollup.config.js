@@ -46,10 +46,10 @@ export default {
 			dedupe: ['svelte']
 		}),
 
-		// postcss({
-		// 	extract: 'static/global.css',
-		// 	plugins: []
-		// }),
+		postcss({
+			extract: 'static/global.css',
+			plugins: []
+		}),
 
 		commonjs(),
 

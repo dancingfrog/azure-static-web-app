@@ -34,7 +34,6 @@
     "rollup-plugin-copy": "",
     "rollup-plugin-livereload": "",
     "rollup-plugin-node-resolve": "",
-    "rollup-plugin-postcss": "",
     "rollup-plugin-shader": "",
     "rollup-plugin-svelte": "",
     "rollup-plugin-terser": "",
