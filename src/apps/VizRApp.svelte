@@ -101,11 +101,20 @@
 <style>
     .controls {
         margin-top: -160px;
-        height: 128px;
+        /*height: 128px;*/
+    }
+
+    .container, canvas {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+        overflow: hidden;
+        pointer-events: none;
     }
 </style>
 
-<GL.Scene bind:gl={webgl} backgroundOpacity=1.0 process_extra_shader_components={process_extra_shader_components}>
+<GL.Scene style="pointer-events: none;" bind:gl={webgl} backgroundOpacity=1.0 process_extra_shader_components={process_extra_shader_components}>
     <GL.Target id="center" location={[0, h/2, 0]}/>
 
     <GL.OrbitControls maxPolarAngle={Math.PI / 2} {location} {target}>

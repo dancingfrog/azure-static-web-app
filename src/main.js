@@ -1,4 +1,4 @@
-// import './styles/global.css';
+import './app.css';
 import App from './apps/App.svelte';
 import GLApp from './apps/GLApp.svelte';
 import VizRApp from './apps/VizRApp.svelte';

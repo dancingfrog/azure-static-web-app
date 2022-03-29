@@ -2,7 +2,6 @@
 <html lang="{{ .Site.LanguageCode | default "en" }}">
   <head>
 
-    <link href="/global.css" rel="stylesheet">
     {{ $stylesheet := .Site.Data.assets.main }}
     {{ with $stylesheet.css }}<link href="{{ relURL . }}" rel="stylesheet">
     {{ end }}

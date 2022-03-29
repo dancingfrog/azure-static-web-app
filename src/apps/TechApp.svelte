@@ -56,10 +56,19 @@
 </script>
 
 <style>
+	.container, canvas {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: block;
+		overflow: hidden;
+		pointer-events: none;
+	}
+
 	.keys {
-		top: calc(50vh - (100vw / 5.75));
-		right: 0;
-		margin: 8px;
+		top: calc(100px + (100vw / 5.75));
+		right: 2px;
+		margin: 8px 10% 8px auto;
 		position: absolute;
 		width: 256px;
 		height: 256px;
@@ -73,7 +82,7 @@
 	}
 </style>
 
-<GL.Scene>
+<GL.Scene style="pointer-events: none;">
 	<GL.Target id="center" location={[0, h/2, 0]}/>
 
 	<GL.OrbitControls maxPolarAngle={Math.PI / 2} let:location>
